@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,16 +6,12 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed = 10f;
-
     [SerializeField] private float jumpForce = 15f;
-
     [SerializeField] private InputManager inputManager;
     
     [Header("Ground Check")]
     [SerializeField] private  LayerMask groundLayer;
-
     [SerializeField] private Vector2 startPointOffset;
-    
     [SerializeField] private float groundCheckDistance;
     
     private float _horizontalInput = 0;
@@ -41,7 +38,6 @@ public class PlayerController : MonoBehaviour
 
     void HandleJumpInput()
     {
-        //apply jump force
         if(_playerRb == null) return;
         
         if(_isOnGround)
@@ -61,25 +57,12 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
-        if (_playerRb == null) return;
-        
         _playerRb.linearVelocityX = moveSpeed * _horizontalInput;
     }
 
     void GroundCheck()
     {
         _isOnGround = Physics2D.Raycast((Vector2)transform.position + startPointOffset, Vector2.down, groundCheckDistance,  groundLayer);
-    }
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 
