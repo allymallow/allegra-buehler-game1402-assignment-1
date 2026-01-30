@@ -14,10 +14,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 startPointOffset;
     [SerializeField] private float groundCheckDistance;
     
+    [SerializeField] private float coyoteTime = 0.2f;
+    private float _timer;
+    
     private float _horizontalInput = 0;
     private Rigidbody2D _playerRb;
 
     private bool _isOnGround;
+    private bool _hasJumped;
     
     void Awake()
     {
@@ -39,9 +43,13 @@ public class PlayerController : MonoBehaviour
     void HandleJumpInput()
     {
         if(_playerRb == null) return;
-        
-        if(_isOnGround)
+        bool canCoyoteJump = _timer < coyoteTime;
+        if (_isOnGround || (canCoyoteJump && !_hasJumped))
+        {
             _playerRb.AddForceY(jumpForce);
+            _hasJumped = true;
+        }
+            
     }
 
     void HandleMoveInput(float value)
@@ -49,6 +57,12 @@ public class PlayerController : MonoBehaviour
         _horizontalInput = value;
     }
 
+    void Update()
+    {
+        _timer += Time.deltaTime;
+        
+    }
+    
     void FixedUpdate()
     {
         HandleMovement();
@@ -63,7 +77,14 @@ public class PlayerController : MonoBehaviour
     void GroundCheck()
     {
         _isOnGround = Physics2D.Raycast((Vector2)transform.position + startPointOffset, Vector2.down, groundCheckDistance,  groundLayer);
-        
+        if (_isOnGround == false)
+        {
+            _timer = 0f;
+        }
+        else
+        {
+            _hasJumped = false;
+        }
     }
 
     void OnDrawGizmos()
