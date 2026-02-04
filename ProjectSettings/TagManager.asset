@@ -8,6 +8,9 @@ TagManager:
   - Coin
   - Health
   - Moving Platform
+  - Spikes
+  - Win Point
+  - Fall Death
   layers:
   - Default
   - TransparentFX

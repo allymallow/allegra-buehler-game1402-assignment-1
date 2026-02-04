@@ -6,13 +6,15 @@ using TMPro;
 public class MenuUI : MonoBehaviour
 {
     [SerializeField] private Button playButton;
-    [SerializeField] private Button restartButton;
+    [SerializeField] private Button restartButtonLossScreen;
+    [SerializeField] private Button restartButtonWinScreen;
     [SerializeField] private Button quitButton;
 
     private void Awake()
     {
         if (playButton != null) playButton.onClick.AddListener(OnPlayPressed);
-        if (restartButton != null) restartButton.onClick.AddListener(OnRestartPressed);
+        if (restartButtonLossScreen != null) restartButtonLossScreen.onClick.AddListener(OnRestartPressed);
+        if (restartButtonWinScreen != null) restartButtonWinScreen.onClick.AddListener(OnRestartPressed);
         if (quitButton != null) quitButton.onClick.AddListener(OnQuitPressed);
     }
 

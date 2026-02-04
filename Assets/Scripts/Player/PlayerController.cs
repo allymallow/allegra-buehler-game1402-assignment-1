@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -97,13 +95,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Win Point")
+            SceneManager.LoadScene(2);
+    }
+    
     void OnDrawGizmos()
     {
         Debug.DrawLine((Vector2)transform.position +  startPointOffset, (Vector2)transform.position +  startPointOffset + Vector2.down * groundCheckDistance, _isOnGround? Color.green : Color.red);
     }
 
-    void GameLoss()
-    {
-        SceneManager.LoadScene("Loss Screen");
-    }
+  
 }

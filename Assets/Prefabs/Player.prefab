@@ -319,10 +319,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd099ec8bb0093845813092b5bab096d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamage
-  healthCollectable: {fileID: 2464949052633012859, guid: 7a0b3d56e65aa6d458903495ef079369, type: 3}
   playerHealth: 5
   healthValue: 3
   damageValue: 5
+  _deathAudioSource: {fileID: 0}
+  _deathSound: {fileID: 8300000, guid: 63b8afb7e5570a24a8d3e303d5ad02f6, type: 3}
 --- !u!1 &6496871732976363829
 GameObject:
   m_ObjectHideFlags: 0

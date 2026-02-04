@@ -7,10 +7,13 @@ public class PlayerDamage : MonoBehaviour
    [SerializeField] public int playerHealth = 10;
    [SerializeField] private int healthValue = 4;
    [SerializeField] private int damageValue = 5;
+
    
+   //Player will take damage if hitting objects tagged as moving platforms (if squished) OR if hits spikes
+   // will take health if player hits a health object, or immediate death if player falls beneath the level
    void OnTriggerEnter2D(Collider2D collision)
    {
-      if (collision.gameObject.tag == "Moving Platform")
+      if (collision.gameObject.CompareTag("Moving Platform") || collision.gameObject.CompareTag("Spikes"))
       {
          TakeDamage(collision);
       }
@@ -18,10 +21,12 @@ public class PlayerDamage : MonoBehaviour
       {
          playerHealth += healthValue;
       }
-
+      else if (collision.gameObject.tag == "Fall Death")
+         SceneManager.LoadScene("Loss Screen");
    }
 
-   void TakeDamage(Collider2D collision)
+   //Defining the damage the player can take as well as the death state
+   void TakeDamage(Collider2D collision) 
    {
       if (playerHealth >= 2)
       {
