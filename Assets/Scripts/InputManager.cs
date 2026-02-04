@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
     
     public System.Action<float> OnMove;
     
-   void Awake()
+    void Awake()
     {
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Enable();
