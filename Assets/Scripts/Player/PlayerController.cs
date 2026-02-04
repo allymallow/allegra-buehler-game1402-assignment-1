@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     [Header("Coyote Time & Time in Air")]
     [SerializeField] private float coyoteTime = 1f; // maximum timeframe to allow for coyote time 
     private float _timer;
-    [SerializeField]private float survivableTime = 1f;
     
     private bool _isOnGround;
     private bool _hasJumped;
@@ -66,14 +65,6 @@ public class PlayerController : MonoBehaviour
     void HandleMoveInput(float value)
     {
         _horizontalInput = value;
-    }
-
-    void FallDamage()
-    {
-        if (_isOnGround == false && survivableTime < _timer)
-        {
-            GameLoss();
-        }
     }
 
     void Update()

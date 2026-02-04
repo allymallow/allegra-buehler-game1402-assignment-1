@@ -141,7 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adcb6019ceeab064d8fed20933bf0272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
-  coinSound: {fileID: 8068027232348100359}
+  _coinAudioSource: {fileID: 8068027232348100359}
+  _coinCollectSound: {fileID: 8300000, guid: 4d15135ed00234f4b83b3bfade778300, type: 3}
 --- !u!82 &8068027232348100359
 AudioSource:
   m_ObjectHideFlags: 0
@@ -153,7 +154,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f7815767d800fc847a7c22eb25d24efe, type: 3}
+  m_Resource: {fileID: 8300000, guid: 4d15135ed00234f4b83b3bfade778300, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

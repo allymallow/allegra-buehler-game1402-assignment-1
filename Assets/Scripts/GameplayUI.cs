@@ -7,8 +7,8 @@ public class GameplayUI : MonoBehaviour
 [SerializeField] private TextMeshProUGUI scoreText;
 [SerializeField] private TextMeshProUGUI healthText;
 
-private PlayerDamage _player;
-private CollectionTracker _collectionTracker;
+[SerializeField] private PlayerDamage _player;
+[SerializeField] private CollectionTracker _collectionTracker;
 void Update()
 {
     UpdateUI(); // Update the UI consistently as the game plays
