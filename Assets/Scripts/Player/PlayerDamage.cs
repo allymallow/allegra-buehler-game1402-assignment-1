@@ -1,12 +1,11 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
    [SerializeField] public int playerHealth = 10;
-   [SerializeField] private int healthValue = 4;
-   [SerializeField] private int damageValue = 5;
+   [SerializeField] private int healthValue;
+   [SerializeField] private int damageValue;
 
    
    //Player will take damage if hitting objects tagged as moving platforms (if squished) OR if hits spikes
@@ -39,7 +38,6 @@ public class PlayerDamage : MonoBehaviour
 
       void Die()
       {
-         Destroy(gameObject);
          SceneManager.LoadScene("Loss Screen");
       }
    }

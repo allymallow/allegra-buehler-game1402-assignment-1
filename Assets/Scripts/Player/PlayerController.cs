@@ -67,10 +67,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        _timer += Time.deltaTime;
+        _timer += Time.deltaTime; //set the game timer to delta time to ensure accuracy/consistency
         
     }
     
+    //ensure ground check and movement input are updating consistently 
     void FixedUpdate()
     {
         HandleMovement();
@@ -79,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
-        _playerRb.linearVelocityX = moveSpeed * _horizontalInput;
+        _playerRb.linearVelocityX = moveSpeed * _horizontalInput; // moves the player's rigidbody in time with the player's move speed and input direction
     }
 
     void GroundCheck()
@@ -87,20 +88,23 @@ public class PlayerController : MonoBehaviour
         _isOnGround = Physics2D.Raycast((Vector2)transform.position + startPointOffset, Vector2.down, groundCheckDistance,  groundLayer);
         if (_isOnGround == false)
         {
-            _timer = 0f; // timer set at zero so it will only count up if the player is off the ground, allowing for accurate coyote time variables
+          
         }
         else
         {
             _hasJumped = false;
+            _timer = 0f; // timer starts when player is grounded to ensure accurate timer for coyote time 
         }
     }
 
+    //once player collides with the win point trigger, switch to the "win game" screen
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Win Point")
             SceneManager.LoadScene(2);
     }
     
+    //debug draw to allow me to see the ground check
     void OnDrawGizmos()
     {
         Debug.DrawLine((Vector2)transform.position +  startPointOffset, (Vector2)transform.position +  startPointOffset + Vector2.down * groundCheckDistance, _isOnGround? Color.green : Color.red);

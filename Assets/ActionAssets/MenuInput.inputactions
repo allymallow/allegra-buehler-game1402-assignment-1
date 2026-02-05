@@ -1,0 +1,75 @@
+{
+    "version": 1,
+    "name": "MenuInput",
+    "maps": [
+        {
+            "name": "Menu",
+            "id": "2586b146-c92c-4b9c-9e5d-373dac3ecd93",
+            "actions": [
+                {
+                    "name": "Up",
+                    "type": "Button",
+                    "id": "b6436318-5881-474e-96c6-699aa7ba941f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Down",
+                    "type": "Button",
+                    "id": "697cccf3-5200-4531-ab66-f7d1d7b43421",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Accept",
+                    "type": "Button",
+                    "id": "f445e126-7bef-4692-9841-a0858d3e1916",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "612daa48-9397-427d-90fc-c73edb1fc1b0",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "249b6738-c299-4655-a5fd-3d329fa8ea27",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a039f5b-f8f2-4e0f-b677-fed3d114dcdf",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accept",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
